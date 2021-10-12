@@ -17,7 +17,7 @@ public class InitScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        naveSpeed = 10f;
+        naveSpeed = 0.2f;
         levelGame = 1;
     }
 

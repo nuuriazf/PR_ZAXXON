@@ -34,7 +34,7 @@ public class InstanciadorObstaculo : MonoBehaviour
         while (true)
         {
  
-            Vector3 instPos = new Vector3(Random.Range(-10f, 10f), 0f, initPos.position.z);
+            Vector3 instPos = new Vector3(Random.Range(-10f, 10f), Random.Range(1f, 6f), initPos.position.z);
             int randomNum;
             level = initScript.levelGame;
             print(level);

@@ -12,7 +12,7 @@ public class ObstaculoMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        initObject = GameObject.Find("InitScript");
+        initObject = GameObject.Find("initObject");
         initScript = initObject.GetComponent<InitScript>();
         speed =initScript.naveSpeed;
     }
