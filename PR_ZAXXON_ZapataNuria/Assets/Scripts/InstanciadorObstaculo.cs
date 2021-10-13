@@ -5,8 +5,6 @@ using UnityEngine;
 public class InstanciadorObstaculo : MonoBehaviour
 {
 
-    [SerializeField] GameObject obst1; 
-    [SerializeField] GameObject obst2; 
 
     [SerializeField] Transform initPos;
 
@@ -34,7 +32,7 @@ public class InstanciadorObstaculo : MonoBehaviour
         while (true)
         {
  
-            Vector3 instPos = new Vector3(Random.Range(-10f, 10f), Random.Range(1f, 6f), initPos.position.z);
+            Vector3 instPos = new Vector3(Random.Range(-12f, 12f), Random.Range(2f, 14f), initPos.position.z);
             int randomNum;
             level = initScript.levelGame;
             print(level);

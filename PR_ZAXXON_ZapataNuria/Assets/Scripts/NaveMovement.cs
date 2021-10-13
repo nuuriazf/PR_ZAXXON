@@ -8,10 +8,10 @@ public class NaveMovement : MonoBehaviour
     [SerializeField] float desplSpeed;
 
     //Variables para la restricción de movimiento
-    float limiteR = 10;
-    float limiteL = -10;
-    float limiteU = 10;
-    float limiteS = 1;
+    float limiteR = 30;
+    float limiteL = -30;
+    float limiteU = 20;
+    float limiteS = 2;
 
     //Variable booleana que determina si puedo moverme o no
     bool inLimitH = true;
@@ -20,7 +20,7 @@ public class NaveMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        desplSpeed = 10f;
+        desplSpeed = 40f;
     }
 
     // Update is called once per frame
