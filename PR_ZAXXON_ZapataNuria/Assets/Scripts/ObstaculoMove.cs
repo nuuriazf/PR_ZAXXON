@@ -6,28 +6,33 @@ public class ObstaculoMove : MonoBehaviour
 {
 
     [SerializeField] GameObject initObject;
-
     InitScript initScript;
+
     float speed;
+
     // Start is called before the first frame update
     void Start()
     {
         initObject = GameObject.Find("initObject");
+
         initScript = initObject.GetComponent<InitScript>();
-        speed =initScript.naveSpeed;
+
+        speed = initScript.naveSpeed;
     }
 
     // Update is called once per frame
     void Update()
     {
         speed = initScript.naveSpeed;
-        transform.Translate(Vector3.back * speed);
+        transform.Translate(Vector3.back * Time.deltaTime * speed);
 
-        //Destruyo el objeto al salir de cámara
         float posZ = transform.position.z;
-        if(posZ < -20)
+        //print(posZ);
+
+        if (posZ < -20)
         {
             Destroy(gameObject);
         }
+
     }
 }

@@ -8,20 +8,24 @@ public class NaveMovement : MonoBehaviour
     [SerializeField] float desplSpeed;
 
     //Variables para la restricción de movimiento
-    float limiteR = 30;
-    float limiteL = -30;
-    float limiteU = 20;
-    float limiteS = 2;
+    float limiteR = 10;
+    float limiteL = -10;
+    float limiteU = 10;
+    float limiteS = 1;
 
     //Variable booleana que determina si puedo moverme o no
     bool inLimitH = true;
     bool inLimitV = true;
 
+    [SerializeField]GameObject nave; 
+
     // Start is called before the first frame update
     void Start()
     {
-        desplSpeed = 40f;
+        desplSpeed = 10f;
+        
     }
+
 
     // Update is called once per frame
     
@@ -69,6 +73,14 @@ public class NaveMovement : MonoBehaviour
             inLimitV = true;
         }
 
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+           if(other.gameObject.layer == 6)
+        {
+            nave.SetActive(false);
+        }
     }
 
 
