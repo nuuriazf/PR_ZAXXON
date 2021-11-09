@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Zaxxon_ZapataNuria_Proyecto_MUERTE.unity
     guid: ee9d762212c14974b9b7710e3ae35a25
+  - enabled: 1
+    path: Assets/Scenes/Zaxxon_ZapataNuria_Proyecto_CONFIG.unity
+    guid: 9d3c83318bf8af249a4ee69835c2f297
+  - enabled: 1
+    path: Assets/Scenes/Zaxxon_ZapataNuria_Proyecto_HIGHSCORE.unity
+    guid: fe39761bd6e322d43a7dda86e9c393b9
   m_configObjects: {}

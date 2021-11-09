@@ -65,11 +65,11 @@ public class InitScript : MonoBehaviour
         score = Mathf.Round(tiempo) * naveSpeed;
         scoreText.text = Mathf.Round(score) + " mts.";
         levelText.text = "NIVEL: " + levelGame.ToString();
-        if (score > 0 && score < 700)
+        if (score > 0 && score < 1000)
         {
             levelGame = 1;
         }
-        else if (score > 700 && score < 1400)
+        else if (score > 1000 && score < 2000)
         {
             levelGame = 2;
         }

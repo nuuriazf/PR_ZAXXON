@@ -51,7 +51,7 @@ public class InstanciadorObstaculo : MonoBehaviour
             if (arrayObst[randomNum].tag == "columna")
             {
 
-                instPos = new Vector3(Random.Range(-10f, 10f),3f, transform.position.z);
+                instPos = new Vector3(Random.Range(-10f, 10f),2f, transform.position.z);
             }
 
             else 
