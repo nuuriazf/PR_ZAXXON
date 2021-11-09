@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class NaveMovement : MonoBehaviour
 {
@@ -80,6 +81,7 @@ public class NaveMovement : MonoBehaviour
            if(other.gameObject.layer == 6)
         {
             nave.SetActive(false);
+            SceneManager.LoadScene(2);
         }
     }
 

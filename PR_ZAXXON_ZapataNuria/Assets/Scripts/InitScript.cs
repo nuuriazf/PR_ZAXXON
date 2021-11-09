@@ -27,7 +27,7 @@ public class InitScript : MonoBehaviour
     //UI
     [SerializeField] Text scoreText;
     [SerializeField] Text levelText;
-
+    
 
     // Start is called before the first frame update
     void Start()
@@ -35,11 +35,8 @@ public class InitScript : MonoBehaviour
         naveSpeed = 30f;
         levelGame = 0;
         //Obtengo la escena en la que estoy y si es la de juego pongo el score a 0
-        int y = SceneManager.GetActiveScene().buildIndex;
-        if (y == 1)
-        {
-            score = 0;
-        }
+        
+       
 
         maxSpeed = 100f;
         alive = true;
@@ -52,9 +49,14 @@ public class InitScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        int y = SceneManager.GetActiveScene().buildIndex;
+        if (y == 1)
+        {
+            score = 0;
+        }
         if (naveSpeed < maxSpeed && alive == true)
         {
-            naveSpeed += 0.001f;
+            naveSpeed += 0.02f;
         }
 
         float tiempo = Time.time;
@@ -63,13 +65,17 @@ public class InitScript : MonoBehaviour
         score = Mathf.Round(tiempo) * naveSpeed;
         scoreText.text = Mathf.Round(score) + " mts.";
         levelText.text = "NIVEL: " + levelGame.ToString();
-        if (score > 0 && score < 500)
+        if (score > 0 && score < 700)
         {
             levelGame = 1;
         }
-        else if (score > 500)
+        else if (score > 700 && score < 1400)
         {
             levelGame = 2;
+        }
+        else
+        {
+            levelGame = 3;
         }
     }
 

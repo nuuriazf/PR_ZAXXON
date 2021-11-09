@@ -8,6 +8,7 @@ public class InstanciadorObstaculo : MonoBehaviour
 
     [SerializeField] GameObject[] arrayObst;
     [SerializeField] GameObject initObject;
+    float intervalo= 0.5f;
 
     InitScript initScript;
 
@@ -26,14 +27,21 @@ public class InstanciadorObstaculo : MonoBehaviour
             int randomNum;
             int level = initScript.levelGame;
             print(level);
-            if(level == 0)
+            if(level == 1)
             {
                 randomNum = 0;
-
+                intervalo = 1f;
+            }
+            else if(level == 2)
+            {
+               
+                randomNum = Random.Range(0, arrayObst.Length);
+                intervalo = 0.5f;
             }
             else
             {
                 randomNum = Random.Range(0, arrayObst.Length);
+                intervalo = 0.2f;
             }
 
             
@@ -43,17 +51,17 @@ public class InstanciadorObstaculo : MonoBehaviour
             if (arrayObst[randomNum].tag == "columna")
             {
 
-                instPos = new Vector3(Random.Range(-10f, 10f),0f, transform.position.z);
+                instPos = new Vector3(Random.Range(-10f, 10f),3f, transform.position.z);
             }
 
             else 
             {
-                instPos = new Vector3(Random.Range(-9f, 9f), Random.Range(5f, 10f), transform.position.z);
+                instPos = new Vector3(Random.Range(-9f, 9f), Random.Range(2f, 10f), transform.position.z);
             }
 
             Instantiate(arrayObst[randomNum], instPos, Quaternion.identity);
 
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(intervalo);
         }
     }
 
