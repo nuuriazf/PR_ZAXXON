@@ -7,7 +7,7 @@ public class NaveMovement : MonoBehaviour
 {
     //Movimiento de desplazamiento
     [SerializeField] float desplSpeed;
-
+    [SerializeField] InitScript initScript;
     //Variables para la restricción de movimiento
     float limiteR = 10;
     float limiteL = -10;
@@ -23,6 +23,7 @@ public class NaveMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        initScript = GameObject.Find("initObject").GetComponent<InitScript>();
         desplSpeed = 10f;
         
     }
@@ -78,10 +79,12 @@ public class NaveMovement : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+
            if(other.gameObject.layer == 6)
         {
             nave.SetActive(false);
             SceneManager.LoadScene(2);
+            initScript.SendMessage("Morir");
         }
     }
 

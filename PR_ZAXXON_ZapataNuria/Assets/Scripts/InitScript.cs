@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class InitScript : MonoBehaviour
 {
-   
+
     /*---------------------------
     //------VARIABLES GLOBALES
     ------------------------------*/
@@ -27,7 +27,7 @@ public class InitScript : MonoBehaviour
     //UI
     [SerializeField] Text scoreText;
     [SerializeField] Text levelText;
-    
+
 
     // Start is called before the first frame update
     void Start()
@@ -35,8 +35,8 @@ public class InitScript : MonoBehaviour
         naveSpeed = 30f;
         levelGame = 0;
         //Obtengo la escena en la que estoy y si es la de juego pongo el score a 0
-        
-       
+
+
 
         maxSpeed = 100f;
         alive = true;
@@ -59,10 +59,13 @@ public class InitScript : MonoBehaviour
             naveSpeed += 0.02f;
         }
 
-        float tiempo = Time.time;
+        float tiempo = Time.timeSinceLevelLoad;
         //print(Mathf.Round(tiempo));
-
-        score = Mathf.Round(tiempo) * naveSpeed;
+        if(naveSpeed != 0)
+        {
+            score = Mathf.Round(tiempo) * naveSpeed;
+        }
+        
         scoreText.text = Mathf.Round(score) + " mts.";
         levelText.text = "NIVEL: " + levelGame.ToString();
         if (score > 0 && score < 1000)
@@ -77,6 +80,9 @@ public class InitScript : MonoBehaviour
         {
             levelGame = 3;
         }
+
+       
+
     }
 
     //Morirse
@@ -85,9 +91,14 @@ public class InitScript : MonoBehaviour
         print("Me he muerto");
         alive = false;
         naveSpeed = 0f;
-        InstanciadorObstaculo instanciadorObst = GameObject.Find("InstanciadorObst").GetComponent<InstanciadorObstaculo>();
+        InstanciadorObstaculo instanciadorObst = GameObject.Find("instanciadorObstaculo").GetComponent<InstanciadorObstaculo>();
         instanciadorObst.SendMessage("Parar");
 
-        
+        if (score > GameManager.highScore)
+        {
+            GameManager.highScore = score;
+            print("Has superado el HS");
+
+        }
     }
 }

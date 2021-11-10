@@ -395,6 +395,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   desplSpeed: 0
+  initScript: {fileID: 269247407}
   nave: {fileID: 513559429}
 --- !u!54 &513559432
 Rigidbody:
